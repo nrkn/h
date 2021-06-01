@@ -1,2 +1,2 @@
 # h
- Hyperscript-like DOM utils
+ Hyperscript-like dom functions
