@@ -1,12 +1,10 @@
 import './fixtures/document'
 
 import * as assert from 'assert'
-import { document, Event } from 'html-element'
-import { H } from '../index'
-import { isNode } from '../util'
+import { Event } from 'html-element'
+import { isNode } from '../lib/predicates'
 import { baseFixtures, Fixture } from './fixtures/suite'
-
-const h = H(document)
+import { h } from '../lib/h'
 
 describe('h', () => {
   const event = new Event('click')

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.baseFixtures = void 0;
 exports.baseFixtures = [
     {
         title: 'creates an element',

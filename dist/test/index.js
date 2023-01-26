@@ -3,10 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("./fixtures/document");
 const assert = require("assert");
 const html_element_1 = require("html-element");
-const index_1 = require("../index");
-const util_1 = require("../util");
+const predicates_1 = require("../lib/predicates");
 const suite_1 = require("./fixtures/suite");
-const h = index_1.H(html_element_1.document);
+const h_1 = require("../lib/h");
 describe('h', () => {
     const event = new html_element_1.Event('click');
     const eventFixture = {
@@ -15,8 +14,8 @@ describe('h', () => {
         args: [
             {
                 click: (e) => {
-                    if (e && util_1.isNode(e.target)) {
-                        e.target.appendChild(html_element_1.document.createTextNode('foo'));
+                    if (e && (0, predicates_1.isNode)(e.target)) {
+                        e.target.appendChild(document.createTextNode('foo'));
                     }
                 }
             }
@@ -29,10 +28,10 @@ describe('h', () => {
         const { title, tag, args, expect, elementChild, map = el => el.outerHTML } = fix;
         let child = null;
         if (elementChild) {
-            child = h(elementChild);
+            child = (0, h_1.h)(elementChild);
         }
         it(title, () => {
-            const el = child ? h(tag, child, ...args) : h(tag, ...args);
+            const el = child ? (0, h_1.h)(tag, child, ...args) : (0, h_1.h)(tag, ...args);
             const value = map(el);
             assert.strictEqual(value, expect);
         });

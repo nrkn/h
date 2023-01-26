@@ -1,11 +1,11 @@
-import { HArg, HTagName } from '../../types'
+import { ElArg, HtmlKey } from '../../lib/types'
 
 export type Fixture = {
   title: string
-  tag: HTagName | string
-  elementChild?: HTagName | string
+  tag: HtmlKey | string
+  elementChild?: HtmlKey | string
   map?: ( el: HTMLElement, ...args: any[] ) => any
-  args: HArg[]
+  args: ElArg[]
   expect: string
 }
 
