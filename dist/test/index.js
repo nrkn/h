@@ -6,6 +6,7 @@ const html_element_1 = require("html-element");
 const predicates_1 = require("../lib/predicates");
 const suite_1 = require("./fixtures/suite");
 const h_1 = require("../lib/h");
+const predicates_2 = require("./fixtures/predicates");
 describe('h', () => {
     const event = new html_element_1.Event('click');
     const eventFixture = {
@@ -35,6 +36,19 @@ describe('h', () => {
             const value = map(el);
             assert.strictEqual(value, expect);
         });
+    });
+});
+describe('helpers', () => {
+    describe('html', () => {
+        const htmlKeys = Object.keys(suite_1.htmlHelpers);
+        for (const key of htmlKeys) {
+            it(key, () => {
+                const el = suite_1.htmlHelpers[key]();
+                assert(predicates_2.htmlElementPredicates[key](el));
+            });
+        }
+    });
+    describe('svg', () => {
     });
 });
 //# sourceMappingURL=index.js.map

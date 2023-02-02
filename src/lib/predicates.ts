@@ -1,4 +1,4 @@
-const svgNs = 'http://www.w3.org/2000/svg'
+import { svgNs } from './const'
 
 export const isNode = (value: any): value is Node =>
   value && typeof value.nodeType === 'number'
@@ -11,4 +11,3 @@ export const isSVGElement = (value: any): value is SVGElement =>
 
 export const isHTMLOrSVGElement = (value: any): value is HTMLOrSVGElement =>
   isElement(value) && 'dataset' in value
-  

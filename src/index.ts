@@ -5,6 +5,7 @@ import { ElArg } from './lib/types'
 export { h } from './lib/h'
 export { s } from './lib/s'
 export { attr } from './lib/attr'
+export { text, fragment } from './lib/util'
 
 // html
 
@@ -142,6 +143,7 @@ export const feConvolveMatrix = ( ...args: ElArg[] ) => s('feConvolveMatrix', ..
 export const feDiffuseLighting = ( ...args: ElArg[] ) => s('feDiffuseLighting', ...args )
 export const feDisplacementMap = ( ...args: ElArg[] ) => s('feDisplacementMap', ...args )
 export const feDistantLight = ( ...args: ElArg[] ) => s('feDistantLight', ...args )
+export const feDropShadow = ( ...args: ElArg[] ) => s('feDropShadow', ...args )
 export const feFlood = ( ...args: ElArg[] ) => s('feFlood', ...args )
 export const feFuncA = ( ...args: ElArg[] ) => s('feFuncA', ...args )
 export const feFuncB = ( ...args: ElArg[] ) => s('feFuncB', ...args )
@@ -185,3 +187,5 @@ export const $title = ( ...args: ElArg[] ) => s('title', ...args )
 export const tspan = ( ...args: ElArg[] ) => s('tspan', ...args )
 export const use = ( ...args: ElArg[] ) => s('use', ...args )
 export const view = ( ...args: ElArg[] ) => s('view', ...args )
+
+//

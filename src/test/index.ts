@@ -3,8 +3,9 @@ import './fixtures/document'
 import * as assert from 'assert'
 import { Event } from 'html-element'
 import { isNode } from '../lib/predicates'
-import { baseFixtures, Fixture } from './fixtures/suite'
+import { baseFixtures, Fixture, htmlHelpers } from './fixtures/suite'
 import { h } from '../lib/h'
+import { htmlElementPredicates } from './fixtures/predicates'
 
 describe('h', () => {
   const event = new Event('click')
@@ -25,27 +26,44 @@ describe('h', () => {
     map: el => { el.dispatchEvent(event); return el.outerHTML }
   }
 
-  const fixtures = [ ...baseFixtures, eventFixture ]
+  const fixtures = [...baseFixtures, eventFixture]
 
-  fixtures.forEach( fix => {
-    const { 
-      title, tag, args, expect, 
-      elementChild, 
-      map = el => el.outerHTML 
+  fixtures.forEach(fix => {
+    const {
+      title, tag, args, expect,
+      elementChild,
+      map = el => el.outerHTML
     } = fix
 
     let child: HTMLElement | null = null
 
-    if( elementChild ){
-      child = h( elementChild )
+    if (elementChild) {
+      child = h(elementChild)
     }
 
-    it( title, () => {
-      const el = child ? h( tag, child, ...args ) : h( tag, ...args )
+    it(title, () => {
+      const el = child ? h(tag, child, ...args) : h(tag, ...args)
 
-      const value = map( el )
+      const value = map(el)
 
-      assert.strictEqual( value, expect )
+      assert.strictEqual(value, expect)
     })
+  })
+})
+
+describe('helpers', () => {
+  describe('html', () => {
+    const htmlKeys = Object.keys( htmlHelpers)  as (keyof HTMLElementTagNameMap)[]
+    for (const key of htmlKeys ) {
+      
+      it( key, () => {
+        const el = htmlHelpers[key]()
+
+        assert( htmlElementPredicates[ key ]( el ) )
+      })
+    }
+  })
+
+  describe('svg', () => {
   })
 })
