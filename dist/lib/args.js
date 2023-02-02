@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleAttribute = exports.handleDataset = exports.handleStyle = exports.handleEvent = exports.handleTextArg = exports.handleObjectArg = exports.handleChildArg = exports.handleArg = void 0;
+exports.textFromArg = exports.handleChildArg = exports.handleArg = void 0;
 const predicates_1 = require("./predicates");
+const next_1 = require("./next");
 const noop = () => { };
-const handleArg = (el, arg) => (0, exports.handleChildArg)(el, arg, () => arg ? (0, exports.handleObjectArg)(el, arg) : noop());
+const handleArg = (el, arg) => (0, exports.handleChildArg)(el, arg, () => handleObjectArg(el, arg));
 exports.handleArg = handleArg;
 const handleChildArg = (el, arg, next = noop) => {
     if (typeof arg === 'string')
@@ -14,34 +15,33 @@ const handleChildArg = (el, arg, next = noop) => {
 };
 exports.handleChildArg = handleChildArg;
 const handleObjectArg = (el, arg) => {
-    if (typeof arg !== 'object')
-        return;
+    // arg cannot be string by this point but ts doesn't know that, hence cast
     for (const key in arg) {
-        (0, exports.handleEvent)(el, key, arg[key], () => (0, exports.handleStyle)(el, key, arg[key], () => (0, exports.handleDataset)(el, key, arg[key], () => (0, exports.handleAttribute)(el, key, arg[key]))));
+        chain.handle(el, key, arg[key]);
     }
 };
-exports.handleObjectArg = handleObjectArg;
-const handleTextArg = (arg) => typeof arg === 'string' ?
+const textFromArg = (arg) => typeof arg === 'string' ?
     arg :
-    arg instanceof Text ?
+    (0, predicates_1.isTextNode)(arg) ?
         arg.data :
-        arg instanceof Element && arg.textContent ?
+        (0, predicates_1.isElement)(arg) && arg.textContent ?
             arg.textContent :
             '';
-exports.handleTextArg = handleTextArg;
-//
-const handleEvent = (el, key, value, next = noop) => typeof value === 'function' ? el.addEventListener(key, value) : next();
-exports.handleEvent = handleEvent;
-const handleStyle = (el, key, value, next = noop) => key === 'style' ?
+exports.textFromArg = textFromArg;
+const handleEvent = (el, key, value, next) => typeof value === 'function' ? el.addEventListener(key, value) : next();
+const handleStyle = (el, key, value, next) => key === 'style' ?
     typeof value === 'string' ?
         el.setAttribute('style', value) :
         Object.assign(el.style, value) :
     next();
-exports.handleStyle = handleStyle;
-const handleDataset = (el, key, value, next = noop) => key === 'data' ?
+const handleDataset = (el, key, value, next) => key === 'data' ?
     Object.keys(value).forEach(key => el.dataset[key] = String(value[key])) :
     next();
-exports.handleDataset = handleDataset;
 const handleAttribute = (el, key, value) => el.setAttribute(key, String(value));
-exports.handleAttribute = handleAttribute;
+//
+const chain = (0, next_1.createFunctionChain)();
+chain.registerHandler(handleEvent);
+chain.registerHandler(handleStyle);
+chain.registerHandler(handleDataset);
+chain.registerHandler(handleAttribute);
 //# sourceMappingURL=args.js.map

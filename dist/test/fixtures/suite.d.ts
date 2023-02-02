@@ -89,7 +89,7 @@ export declare const htmlHelpers: {
     rp: (...args: ElArg[]) => HTMLElement;
     rt: (...args: ElArg[]) => HTMLElement;
     ruby: (...args: ElArg[]) => HTMLElement;
-    s: (tagName: string, ...args: ElArg[]) => SVGElement;
+    $s: (...args: ElArg[]) => HTMLElement;
     samp: (...args: ElArg[]) => HTMLElement;
     script: (...args: ElArg[]) => HTMLScriptElement;
     section: (...args: ElArg[]) => HTMLElement;
@@ -177,4 +177,7 @@ export declare const svgHelpers: {
     tspan: (...args: ElArg[]) => SVGElement;
     use: (...args: ElArg[]) => SVGElement;
     view: (...args: ElArg[]) => SVGElement;
+    $script: (...args: ElArg[]) => SVGElement;
+    $style: (...args: ElArg[]) => SVGElement;
+    $title: (...args: ElArg[]) => SVGElement;
 };

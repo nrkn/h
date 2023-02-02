@@ -6,6 +6,9 @@ export const isNode = (value: any): value is Node =>
 export const isElement = (value: any): value is Element =>
   value && value['nodeType'] === 1
 
+export const isTextNode = (value: any): value is Text =>
+  value && value['nodeType'] === 3
+
 export const isSVGElement = (value: any): value is SVGElement =>
   isElement(value) && value.namespaceURI === svgNs
 

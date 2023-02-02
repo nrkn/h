@@ -1,11 +1,14 @@
 import { ElArg, HElement } from './types'
-import { isNode } from './predicates'
+import { isElement, isNode, isTextNode } from './predicates'
+import { createFunctionChain } from './next'
 
-const noop = () => { }
+type NextArg = ( ...args: any[] ) => void
+
+const noop: NextArg = () => {}
 
 export const handleArg = (el: HElement, arg: ElArg) =>
   handleChildArg( el, arg,
-    () => arg ? handleObjectArg(el, arg) : noop()
+    () => handleObjectArg(el, arg)
   )
 
 export const handleChildArg = (
@@ -17,40 +20,31 @@ export const handleChildArg = (
   next()
 }
 
-export const handleObjectArg = (
+const handleObjectArg = (
   el: HElement, arg: ElArg
 ) => {
-  if( typeof arg !== 'object' ) return
-
-  for( const key in arg ){
-    handleEvent( el, key, arg[key],
-      () => handleStyle( el, key, arg[key],
-        () => handleDataset( el, key, arg[key],
-          () => handleAttribute( el, key, arg[key])
-        )
-      )
-    )
+  // arg cannot be string by this point but ts doesn't know that, hence cast
+  for( const key in arg as any ){    
+    chain.handle( el, key, arg[ key ] )
   }
 }
 
-export const handleTextArg = (arg: ElArg) =>
+export const textFromArg = (arg: ElArg) =>
   typeof arg === 'string' ?
     arg :
-    arg instanceof Text ?
+    isTextNode( arg ) ?     
       arg.data :
-      arg instanceof Element && arg.textContent ?
+      isElement( arg ) && arg.textContent ?
         arg.textContent :
         ''
 
-//
-
-export const handleEvent = (
-  el: HElement, key: string, value: any, next = noop
+const handleEvent = (
+  el: HElement, key: string, value: any, next: NextArg
 ) =>
   typeof value === 'function' ? el.addEventListener(key, value) : next()
 
-export const handleStyle = (
-  el: HElement, key: string, value: any, next = noop
+const handleStyle = (
+  el: HElement, key: string, value: any, next: NextArg
 ) =>
   key === 'style' ?
     typeof value === 'string' ?
@@ -58,14 +52,24 @@ export const handleStyle = (
       Object.assign(el.style, value) :
     next()
 
-export const handleDataset = (
-  el: HElement, key: string, value: any, next = noop
+const handleDataset = (
+  el: HElement, key: string, value: any, next: NextArg
 ) =>
   key === 'data' ?
     Object.keys(value).forEach(key => el.dataset[key] = String(value[key])) :
     next()
 
-export const handleAttribute = (
+const handleAttribute = (
   el: HElement, key: string, value: any
 ) =>
   el.setAttribute(key, String(value))
+
+//
+
+const chain = createFunctionChain()
+
+chain.registerHandler( handleEvent )
+chain.registerHandler( handleStyle )
+chain.registerHandler( handleDataset )
+chain.registerHandler( handleAttribute )
+

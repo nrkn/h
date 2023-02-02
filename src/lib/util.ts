@@ -1,10 +1,10 @@
-import { handleChildArg, handleTextArg } from './args'
+import { handleChildArg, textFromArg } from './args'
 import { ElArg } from './types'
 
 export const text = (...args: ElArg[]) => {
   let data = ''
 
-  args.forEach(arg => data += handleTextArg(arg))
+  args.forEach(arg => data += textFromArg(arg))
 
   return document.createTextNode(data)
 }

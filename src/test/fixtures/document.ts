@@ -1,4 +1,8 @@
-import * as window from 'html-element'
+import { JSDOM } from 'jsdom'
 
-global[ 'window'] = window
+const dom = new JSDOM('<!doctype html>')
+
+const { window } = dom
+
+global[ 'window'] = window as any
 global[ 'document' ] = window.document

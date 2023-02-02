@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.svgHelpers = exports.htmlHelpers = exports.baseFixtures = void 0;
 const __1 = require("../..");
-const s_1 = require("../../lib/s");
 exports.baseFixtures = [
     {
         title: 'creates an element',
@@ -39,7 +38,7 @@ exports.baseFixtures = [
         title: 'creates an element with string style',
         tag: 'div',
         args: [{ style: 'color:red' }],
-        expect: '<div style="color:red;"></div>'
+        expect: '<div style="color:red"></div>'
     },
     {
         title: 'creates an element with style object',
@@ -56,7 +55,7 @@ exports.htmlHelpers = {
     figure: __1.figure, footer: __1.footer, form: __1.form, h1: __1.h1, h2: __1.h2, h3: __1.h3, h4: __1.h4, h5: __1.h5, h6: __1.h6, head: __1.head, header: __1.header, hgroup: __1.hgroup, hr: __1.hr, html: __1.html,
     i: __1.i, iframe: __1.iframe, img: __1.img, input: __1.input, ins: __1.ins, kbd: __1.kbd, label: __1.label, legend: __1.legend, li: __1.li, link: __1.link, main: __1.main, map: __1.map, mark: __1.mark,
     menu: __1.menu, meta: __1.meta, meter: __1.meter, nav: __1.nav, noscript: __1.noscript, object: __1.object, ol: __1.ol, optgroup: __1.optgroup, option: __1.option, output: __1.output, p: __1.p,
-    picture: __1.picture, pre: __1.pre, progress: __1.progress, q: __1.q, rp: __1.rp, rt: __1.rt, ruby: __1.ruby, s: s_1.s, samp: __1.samp, script: __1.script, section: __1.section, select: __1.select,
+    picture: __1.picture, pre: __1.pre, progress: __1.progress, q: __1.q, rp: __1.rp, rt: __1.rt, ruby: __1.ruby, $s: __1.$s, samp: __1.samp, script: __1.script, section: __1.section, select: __1.select,
     slot: __1.slot, small: __1.small, source: __1.source, span: __1.span, strong: __1.strong, style: __1.style, sub: __1.sub, summary: __1.summary, sup: __1.sup, table: __1.table, tbody: __1.tbody, td: __1.td,
     template: __1.template, textarea: __1.textarea, tfoot: __1.tfoot, th: __1.th, thead: __1.thead, time: __1.time, title: __1.title, tr: __1.tr, track: __1.track, u: __1.u, ul: __1.ul, $var: __1.$var,
     video: __1.video, wbr: __1.wbr
@@ -69,6 +68,6 @@ exports.svgHelpers = {
     feOffset: __1.feOffset, fePointLight: __1.fePointLight, feSpecularLighting: __1.feSpecularLighting, feSpotLight: __1.feSpotLight, feTile: __1.feTile, feTurbulence: __1.feTurbulence,
     filter: __1.filter, foreignObject: __1.foreignObject, g: __1.g, image: __1.image, line: __1.line, linearGradient: __1.linearGradient, marker: __1.marker, mask: __1.mask, metadata: __1.metadata,
     path: __1.path, pattern: __1.pattern, polygon: __1.polygon, polyline: __1.polyline, radialGradient: __1.radialGradient, rect: __1.rect, stop: __1.stop, svg: __1.svg, $switch: __1.$switch,
-    symbol: __1.symbol, $text: __1.$text, textPath: __1.textPath, tspan: __1.tspan, use: __1.use, view: __1.view
+    symbol: __1.symbol, $text: __1.$text, textPath: __1.textPath, tspan: __1.tspan, use: __1.use, view: __1.view, $script: __1.$script, $style: __1.$style, $title: __1.$title
 };
 //# sourceMappingURL=suite.js.map

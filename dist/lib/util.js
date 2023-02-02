@@ -4,7 +4,7 @@ exports.fragment = exports.text = void 0;
 const args_1 = require("./args");
 const text = (...args) => {
     let data = '';
-    args.forEach(arg => data += (0, args_1.handleTextArg)(arg));
+    args.forEach(arg => data += (0, args_1.textFromArg)(arg));
     return document.createTextNode(data);
 };
 exports.text = text;

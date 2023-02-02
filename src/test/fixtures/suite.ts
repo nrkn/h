@@ -15,10 +15,9 @@ import {
   progress, q, radialGradient, rect, rp, rt, ruby, samp, script, section, 
   select, slot, small, source, span, strong, style, sub, summary, sup, svg, 
   symbol, table, tbody, td, template, stop, textarea, textPath, tfoot, th, 
-  thead, time, title, tr, track, tspan, u, ul, use, video, view, wbr 
+  thead, time, title, tr, track, tspan, u, ul, use, video, view, wbr, $s, $script, $style, $title 
 } from '../..'
 
-import { s } from '../../lib/s'
 import { ElArg, HtmlKey } from '../../lib/types'
 
 export type Fixture = {
@@ -66,7 +65,7 @@ export const baseFixtures: Fixture[] = [
     title: 'creates an element with string style',
     tag: 'div',
     args: [{ style: 'color:red' }],
-    expect: '<div style="color:red;"></div>'
+    expect: '<div style="color:red"></div>'
   },
   {
     title: 'creates an element with style object',
@@ -84,7 +83,7 @@ export const htmlHelpers = {
   figure, footer, form, h1, h2, h3, h4, h5, h6, head, header, hgroup, hr, html, 
   i, iframe, img, input, ins, kbd, label, legend, li, link, main, map, mark, 
   menu, meta, meter, nav, noscript, object, ol, optgroup, option, output, p, 
-  picture, pre, progress, q, rp, rt, ruby, s, samp, script, section, select, 
+  picture, pre, progress, q, rp, rt, ruby, $s, samp, script, section, select, 
   slot, small, source, span, strong, style, sub, summary, sup, table, tbody, td, 
   template, textarea, tfoot, th, thead, time, title, tr, track, u, ul, $var, 
   video, wbr 
@@ -98,5 +97,5 @@ export const svgHelpers = {
   feOffset, fePointLight, feSpecularLighting, feSpotLight, feTile, feTurbulence, 
   filter, foreignObject, g, image, line, linearGradient, marker, mask, metadata, 
   path, pattern, polygon, polyline, radialGradient, rect, stop, svg, $switch, 
-  symbol, $text, textPath, tspan, use, view
+  symbol, $text, textPath, tspan, use, view, $script, $style, $title
 }
