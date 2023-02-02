@@ -22,11 +22,13 @@ const handleObjectArg = (el, arg) => {
 };
 const textFromArg = (arg) => typeof arg === 'string' ?
     arg :
-    (0, predicates_1.isTextNode)(arg) ?
-        arg.data :
-        (0, predicates_1.isElement)(arg) && arg.textContent ?
-            arg.textContent :
-            '';
+    typeof arg === 'number' ?
+        String(arg) :
+        (0, predicates_1.isTextNode)(arg) ?
+            arg.data :
+            (0, predicates_1.isElement)(arg) && arg.textContent ?
+                arg.textContent :
+                '';
 exports.textFromArg = textFromArg;
 const handleEvent = (el, key, value, next) => typeof value === 'function' ? el.addEventListener(key, value) : next();
 const handleStyle = (el, key, value, next) => key === 'style' ?
@@ -37,7 +39,21 @@ const handleStyle = (el, key, value, next) => key === 'style' ?
 const handleDataset = (el, key, value, next) => key === 'data' ?
     Object.keys(value).forEach(key => el.dataset[key] = String(value[key])) :
     next();
-const handleAttribute = (el, key, value) => el.setAttribute(key, String(value));
+const handleAttribute = (el, key, value) => {
+    if (value === true) {
+        el.setAttribute(key, '');
+        return;
+    }
+    if (value === undefined || value === null || value === false) {
+        el.removeAttribute(key);
+        return;
+    }
+    if (Array.isArray(value)) {
+        el.setAttribute(key, value.join(' '));
+        return;
+    }
+    el.setAttribute(key, String(value));
+};
 //
 const chain = (0, next_1.createFunctionChain)();
 chain.registerHandler(handleEvent);

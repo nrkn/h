@@ -1,7 +1,7 @@
 declare type HtmlTagMap = HTMLElementTagNameMap;
 declare type SvgTagMap = SVGElementTagNameMap;
 export declare type ElAttr = Record<string, any>;
-export declare type ElChild = string | Node;
+export declare type ElChild = string | number | Node;
 export declare type ElArg = ElChild | ElAttr;
 export declare type HElement = HTMLElement | SVGElement;
 export declare type HtmlKey = keyof HtmlTagMap;

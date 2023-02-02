@@ -82,6 +82,12 @@ describe('helpers', () => {
 
         assert.strictEqual(textFromEmpty, '')
       })
+
+      it( 'text from number', () => {
+        const textFromNumber = textFromArg(1)
+
+        assert.strictEqual(textFromNumber, '1')
+      })
     })
 
 
@@ -106,6 +112,22 @@ describe('helpers', () => {
         handleChildArg(el, {})
 
         assert.strictEqual(el.childNodes.length, 0)
+      })
+
+      it( 'sets true attribute', () => {
+        const el = h('div', { disabled: true })
+
+        assert.strictEqual(el.getAttribute('disabled'), '')
+      })
+
+      it( 'sets falsey attributes', () => {
+        const el = h('div', { disabled: true, checked: true, selected: true })
+
+        attr( el, { disabled: false, checked: null, selected: undefined})
+        
+        assert.strictEqual(el.getAttribute('disabled'), null)
+        assert.strictEqual(el.getAttribute('checked'), null)
+        assert.strictEqual(el.getAttribute('selected'), null)
       })
     })
 
@@ -145,6 +167,12 @@ describe('helpers', () => {
       const el = s('circle', { cx: 10, cy: 10, r: 10 })
 
       assert( isHTMLOrSVGElement( el ))
+    })
+
+    it( 'viewBox accepts array', () => {
+      const el = s('svg', { viewBox: [0, 0, 100, 100] })
+
+      assert.strictEqual(el.getAttribute('viewBox'), '0 0 100 100')
     })
 
     const svgKeys = Object.keys(svgHelpers) as (keyof SVGElementTagNameMap)[]

@@ -61,6 +61,10 @@ describe('helpers', () => {
                 const textFromEmpty = (0, args_1.textFromArg)({});
                 assert.strictEqual(textFromEmpty, '');
             });
+            it('text from number', () => {
+                const textFromNumber = (0, args_1.textFromArg)(1);
+                assert.strictEqual(textFromNumber, '1');
+            });
         });
         it('fragment helper', () => {
             const frag = (0, __1.fragment)((0, __1.h)('div'), (0, __1.h)('div'));
@@ -76,6 +80,17 @@ describe('helpers', () => {
                 const el = (0, __1.h)('div');
                 (0, args_1.handleChildArg)(el, {});
                 assert.strictEqual(el.childNodes.length, 0);
+            });
+            it('sets true attribute', () => {
+                const el = (0, __1.h)('div', { disabled: true });
+                assert.strictEqual(el.getAttribute('disabled'), '');
+            });
+            it('sets falsey attributes', () => {
+                const el = (0, __1.h)('div', { disabled: true, checked: true, selected: true });
+                (0, __1.attr)(el, { disabled: false, checked: null, selected: undefined });
+                assert.strictEqual(el.getAttribute('disabled'), null);
+                assert.strictEqual(el.getAttribute('checked'), null);
+                assert.strictEqual(el.getAttribute('selected'), null);
             });
         });
         it('is HTML or SVG', () => {
@@ -104,6 +119,10 @@ describe('helpers', () => {
         it('is HTML or SVG', () => {
             const el = (0, __1.s)('circle', { cx: 10, cy: 10, r: 10 });
             assert((0, predicates_1.isHTMLOrSVGElement)(el));
+        });
+        it('viewBox accepts array', () => {
+            const el = (0, __1.s)('svg', { viewBox: [0, 0, 100, 100] });
+            assert.strictEqual(el.getAttribute('viewBox'), '0 0 100 100');
         });
         const svgKeys = Object.keys(suite_1.svgHelpers);
         for (const key of svgKeys) {

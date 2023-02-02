@@ -6,7 +6,7 @@ type SvgTagMap = SVGElementTagNameMap
 
 export type ElAttr = Record<string,any>
 
-export type ElChild = string | Node
+export type ElChild = string | number | Node
 
 export type ElArg = ElChild | ElAttr
 
