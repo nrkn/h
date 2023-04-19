@@ -1,6 +1,6 @@
 
-type HtmlTagMap = HTMLElementTagNameMap
-type SvgTagMap = SVGElementTagNameMap
+export type HtmlTagMap = HTMLElementTagNameMap
+export type SvgTagMap = SVGElementTagNameMap
 
 //
 
@@ -23,5 +23,5 @@ export type H = {
 }
 
 export type S = {
-  <K extends HtmlKey>(tagName: K, ...args: ElArg[]): HtmlTagMap[K]
+  <K extends SvgKey>(tagName: K, ...args: ElArg[]): SvgTagMap[K]
 }

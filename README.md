@@ -1,10 +1,34 @@
 # h
 
-Hyperscript-like dom functions
+Hyperscript-like dom functions, TypeScript with no external dependencies.
+
+Inspired by [hyperscript](https://github.com/hyperhype/hyperscript), with some 
+differences that cater to my personal preferences. The intention is to provide a 
+convenient way to create elements without relying on JSX or template literals, 
+primarily for my own usage. May not suit everyone's taste.
+
+Please note, it has significant differences to hyperscript, and is not a drop-in
+replacement. See below for details.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Important Notes](#important-notes)
+- [Basic Usage](#basic-usage)
+  - [HTML](#html)
+  - [SVG](#svg)
+- [Argument Handling](#argument-handling)
+  - [Attribute Handling](#attribute-handling)
+  - [Style Handling](#style-handling)
+  - [Dataset Handling](#dataset-handling)
+  - [Event Handling](#event-handling)
+- [Differences to Hyperscript](#differences-to-hyperscript)
+
+## installation
 
 `npm install @nrkn/h`
 
-## important!
+## important notes
 
 Expects `document` to exist in the global namespace - patch it with 
 [jsdom](https://github.com/jsdom/jsdom), `html-element` et al if using in 
@@ -13,7 +37,7 @@ fixture](src/test/fixtures/document.ts)
 
 ## basic usage
 
-HTML:
+### HTML
 
 ```ts
 import { div, h1, p, attr } from '@nrkn/h'
@@ -38,7 +62,7 @@ const el = h(
 )
 ```
 
-SVG:
+### SVG
 
 ```ts
 import { svg, circle, attr } from '@nrkn/h'
@@ -135,6 +159,76 @@ attached to the element via `addEventListener`, eg:
 ```ts
 const el = h('div', { click: () => console.log('clicked') })
 ```
+
+## differences to hyperscript
+
+The main differences between h and hyperscript are:
+
+### `h` exports factory functions
+
+`h` exports factory functions for each HTML/SVG element, eg:
+
+```ts
+import { div, h1 } from '@nrkn/h'
+
+const someEl = div( h1('Hello World') )
+```
+
+Compared to `hyperscript` (note, `h` supports this syntax as well):
+
+```ts
+const someEl = h('div', h('h1', 'Hello World'))
+```
+
+### `h` uses standard HTML attribute names
+
+eg `class` instead of `className`, `for` instead of `htmlFor` etc.
+
+I just prefer this, even though it's inconsistent with my handling of css 
+styles. It is the opposite to how hyperscript works.
+
+This is somewhat annoying in SVG, as you have to wrap property names that 
+contain hyphens in quotes - maybe we will support either syntax in the future,
+depending on how many edge cases etc (SVG uses both camelCased and kekab-cased 
+attribute names, and camelCased property names - what a mess)
+
+### `h` uses camelCased CSS property names
+
+eg `backgroundColor` instead of `background-color`
+
+Inconsistent with HTML attribute names, but I find it more convenient in 
+TypeScript as you can use the CSSStyleDeclaration type to get autocompletion,
+and also you don't have to escape the property name with quotes. Again, this is
+the opposite to how hyperscript works.
+
+We may support either syntax in the future.
+
+### `h` doesn't support CSS selector syntax 
+
+`h` doesn't support CSS selector syntax for creating elements that hyperscript 
+allows (e.g., h('div#page', ...)).
+
+### `h` doesn't prefix event handlers with 'on'
+
+For event handling, h uses event names without the "on" prefix (e.g., click 
+instead of onclick).
+
+### `h` doesn't support arrays of children
+
+It could, I just never needed it as you can spread an array of children easily 
+enough:
+
+```ts
+const children: HTMLElement[] = [ ... ]
+
+const el = div( { id: 'foo' }, ...children, anotherChild, etc )
+```
+
+### `h` doesn't patch the global window or document
+
+It has no external dependencies, so unlike `hyperscript` it doesn't patch the
+global `window` or `document` objects for you if you use it outside the 
+browser, you will need to patch it yourself as described above.
 
 ## license
 
