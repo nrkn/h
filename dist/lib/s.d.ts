@@ -1,2 +1,2 @@
-import { ElArg } from './types';
-export declare const s: (tagName: string, ...args: ElArg[]) => SVGElement;
+import { S } from './types';
+export declare const s: S;

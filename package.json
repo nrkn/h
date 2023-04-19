@@ -1,6 +1,6 @@
 {
   "name": "@nrkn/h",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Hyperscript-like DOM utils",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
