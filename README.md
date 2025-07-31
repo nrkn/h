@@ -234,7 +234,7 @@ browser, you will need to patch it yourself as described above.
 
 MIT License
 
-Copyright (c) 2023 Nik Coughlin
+Copyright (c) 2025 Nik Coughlin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

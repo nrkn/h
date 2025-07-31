@@ -1,4 +1,4 @@
-import { svgNs } from './const'
+import { svgNs } from './const.js'
 
 export const isNode = (value: any): value is Node =>
   value && typeof value.nodeType === 'number'

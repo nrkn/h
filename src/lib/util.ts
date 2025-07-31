@@ -1,5 +1,5 @@
-import { handleChildArg, textFromArg } from './args'
-import { ElArg } from './types'
+import { handleChildArg, textFromArg } from './args.js'
+import { ElArg } from './types.js'
 
 export const text = (...args: ElArg[]) => {
   let data = ''

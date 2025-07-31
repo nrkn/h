@@ -1,1 +1,1 @@
-import './fixtures/document';
+import './fixtures/document.js';

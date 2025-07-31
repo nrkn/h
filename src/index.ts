@@ -1,11 +1,11 @@
-import { h } from './lib/h'
-import { s } from './lib/s'
-import { ElArg } from './lib/types'
+import { h } from './lib/h.js'
+import { s } from './lib/s.js'
+import { ElArg } from './lib/types.js'
 
-export { h } from './lib/h'
-export { s } from './lib/s'
-export { attr } from './lib/attr'
-export { text, fragment } from './lib/util'
+export { h } from './lib/h.js'
+export { s } from './lib/s.js'
+export { attr } from './lib/attr.js'
+export { text, fragment } from './lib/util.js'
 
 // html
 

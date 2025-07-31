@@ -15,10 +15,11 @@ import {
   progress, q, radialGradient, rect, rp, rt, ruby, samp, script, section, 
   select, slot, small, source, span, strong, style, sub, summary, sup, svg, 
   symbol, table, tbody, td, template, stop, textarea, textPath, tfoot, th, 
-  thead, time, title, tr, track, tspan, u, ul, use, video, view, wbr, $s, $script, $style, $title 
-} from '../..'
+  thead, time, title, tr, track, tspan, u, ul, use, video, view, wbr, $s, 
+  $script, $style, $title 
+} from '../../index.js'
 
-import { ElArg, HtmlKey } from '../../lib/types'
+import { ElArg, HtmlKey } from '../../lib/types.js'
 
 export type Fixture = {
   title: string

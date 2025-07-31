@@ -1,5 +1,5 @@
-import { ElArg, HtmlKey } from '../../lib/types';
-export declare type Fixture = {
+import { ElArg, HtmlKey } from '../../lib/types.js';
+export type Fixture = {
     title: string;
     tag: HtmlKey | string;
     elementChild?: HtmlKey | string;

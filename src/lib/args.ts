@@ -1,6 +1,6 @@
-import { ElArg, HElement } from './types'
-import { isElement, isNode, isTextNode } from './predicates'
-import { createFunctionChain } from './next'
+import { ElArg, HElement } from './types.js'
+import { isElement, isNode, isTextNode } from './predicates.js'
+import { createFunctionChain } from './next.js'
 
 type NextArg = (...args: any[]) => void
 

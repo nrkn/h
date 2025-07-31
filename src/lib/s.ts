@@ -1,6 +1,6 @@
-import { handleArg } from './args'
-import { svgNs } from './const'
-import { S } from './types'
+import { handleArg } from './args.js'
+import { svgNs } from './const.js'
+import { S } from './types.js'
 
 export const s: S = (tagName, ...args ) => {
   const element = document.createElementNS( svgNs, tagName )

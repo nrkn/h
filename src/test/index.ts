@@ -1,11 +1,15 @@
-import './fixtures/document'
+import './fixtures/document.js'
 
 import * as assert from 'assert'
-import { isHTMLOrSVGElement, isNode, isSVGElement } from '../lib/predicates'
-import { baseFixtures, Fixture, htmlHelpers, svgHelpers } from './fixtures/suite'
-import { attr, fragment, h, s, text } from '..'
-import { handleArg, handleChildArg, textFromArg } from '../lib/args'
-import { createFunctionChain } from '../lib/next'
+import { isHTMLOrSVGElement, isNode, isSVGElement } from '../lib/predicates.js'
+
+import { 
+  baseFixtures, Fixture, htmlHelpers, svgHelpers 
+} from './fixtures/suite.js'
+
+import { attr, fragment, h, s, text } from '../index.js'
+import { handleChildArg, textFromArg } from '../lib/args.js'
+import { createFunctionChain } from '../lib/next.js'
 
 const { Event } = window
 
@@ -144,7 +148,7 @@ describe('helpers', () => {
       it(check, () => {
         const el = htmlHelpers[key]()
 
-        // html-element doesn't support much, just check that the nodeName matches        
+        // html-element doesn't support much, just check that nodeName matches        
         assert.strictEqual(el.nodeName.toLowerCase(), check)
       })
     }
@@ -183,7 +187,7 @@ describe('helpers', () => {
       it(check, () => {
         const el = svgHelpers[key]()
 
-        // html-element doesn't support much, just check that the nodeName matches        
+        // html-element doesn't support much, just check that nodeName matches        
         assert.strictEqual(el.nodeName, check)
       })
     }

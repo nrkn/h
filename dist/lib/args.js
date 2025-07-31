@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.textFromArg = exports.handleChildArg = exports.handleArg = void 0;
-const predicates_1 = require("./predicates");
-const next_1 = require("./next");
+const predicates_js_1 = require("./predicates.js");
+const next_js_1 = require("./next.js");
 const noop = () => { };
 const handleArg = (el, arg) => (0, exports.handleChildArg)(el, arg, () => handleObjectArg(el, arg));
 exports.handleArg = handleArg;
 const handleChildArg = (el, arg, next = noop) => {
     if (typeof arg === 'string')
         arg = document.createTextNode(arg);
-    if ((0, predicates_1.isNode)(arg))
+    if ((0, predicates_js_1.isNode)(arg))
         return el.appendChild(arg);
     next();
 };
@@ -24,9 +24,9 @@ const textFromArg = (arg) => typeof arg === 'string' ?
     arg :
     typeof arg === 'number' ?
         String(arg) :
-        (0, predicates_1.isTextNode)(arg) ?
+        (0, predicates_js_1.isTextNode)(arg) ?
             arg.data :
-            (0, predicates_1.isElement)(arg) && arg.textContent ?
+            (0, predicates_js_1.isElement)(arg) && arg.textContent ?
                 arg.textContent :
                 '';
 exports.textFromArg = textFromArg;
@@ -55,7 +55,7 @@ const handleAttribute = (el, key, value) => {
     el.setAttribute(key, String(value));
 };
 //
-const chain = (0, next_1.createFunctionChain)();
+const chain = (0, next_js_1.createFunctionChain)();
 chain.registerHandler(handleEvent);
 chain.registerHandler(handleStyle);
 chain.registerHandler(handleDataset);

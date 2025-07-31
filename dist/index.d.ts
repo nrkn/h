@@ -1,8 +1,8 @@
-import { ElArg } from './lib/types';
-export { h } from './lib/h';
-export { s } from './lib/s';
-export { attr } from './lib/attr';
-export { text, fragment } from './lib/util';
+import { ElArg } from './lib/types.js';
+export { h } from './lib/h.js';
+export { s } from './lib/s.js';
+export { attr } from './lib/attr.js';
+export { text, fragment } from './lib/util.js';
 export declare const a: (...args: ElArg[]) => HTMLAnchorElement;
 export declare const abbr: (...args: ElArg[]) => HTMLElement;
 export declare const address: (...args: ElArg[]) => HTMLElement;

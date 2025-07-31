@@ -1,2 +1,2 @@
-import { H } from './types';
+import { H } from './types.js';
 export declare const h: H;

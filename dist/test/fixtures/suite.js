@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.svgHelpers = exports.htmlHelpers = exports.baseFixtures = void 0;
-const __1 = require("../..");
+const index_js_1 = require("../../index.js");
 exports.baseFixtures = [
     {
         title: 'creates an element',
@@ -49,25 +49,25 @@ exports.baseFixtures = [
     },
 ];
 exports.htmlHelpers = {
-    a: __1.a, abbr: __1.abbr, address: __1.address, area: __1.area, article: __1.article, aside: __1.aside, audio: __1.audio, b: __1.b, base: __1.base, bdi: __1.bdi, bdo: __1.bdo, blockquote: __1.blockquote,
-    body: __1.body, br: __1.br, button: __1.button, canvas: __1.canvas, caption: __1.caption, cite: __1.cite, code: __1.code, col: __1.col, colgroup: __1.colgroup, data: __1.data, datalist: __1.datalist,
-    dd: __1.dd, del: __1.del, details: __1.details, dfn: __1.dfn, dialog: __1.dialog, div: __1.div, dl: __1.dl, dt: __1.dt, em: __1.em, embed: __1.embed, fieldset: __1.fieldset, figcaption: __1.figcaption,
-    figure: __1.figure, footer: __1.footer, form: __1.form, h1: __1.h1, h2: __1.h2, h3: __1.h3, h4: __1.h4, h5: __1.h5, h6: __1.h6, head: __1.head, header: __1.header, hgroup: __1.hgroup, hr: __1.hr, html: __1.html,
-    i: __1.i, iframe: __1.iframe, img: __1.img, input: __1.input, ins: __1.ins, kbd: __1.kbd, label: __1.label, legend: __1.legend, li: __1.li, link: __1.link, main: __1.main, map: __1.map, mark: __1.mark,
-    menu: __1.menu, meta: __1.meta, meter: __1.meter, nav: __1.nav, noscript: __1.noscript, object: __1.object, ol: __1.ol, optgroup: __1.optgroup, option: __1.option, output: __1.output, p: __1.p,
-    picture: __1.picture, pre: __1.pre, progress: __1.progress, q: __1.q, rp: __1.rp, rt: __1.rt, ruby: __1.ruby, $s: __1.$s, samp: __1.samp, script: __1.script, section: __1.section, select: __1.select,
-    slot: __1.slot, small: __1.small, source: __1.source, span: __1.span, strong: __1.strong, style: __1.style, sub: __1.sub, summary: __1.summary, sup: __1.sup, table: __1.table, tbody: __1.tbody, td: __1.td,
-    template: __1.template, textarea: __1.textarea, tfoot: __1.tfoot, th: __1.th, thead: __1.thead, time: __1.time, title: __1.title, tr: __1.tr, track: __1.track, u: __1.u, ul: __1.ul, $var: __1.$var,
-    video: __1.video, wbr: __1.wbr
+    a: index_js_1.a, abbr: index_js_1.abbr, address: index_js_1.address, area: index_js_1.area, article: index_js_1.article, aside: index_js_1.aside, audio: index_js_1.audio, b: index_js_1.b, base: index_js_1.base, bdi: index_js_1.bdi, bdo: index_js_1.bdo, blockquote: index_js_1.blockquote,
+    body: index_js_1.body, br: index_js_1.br, button: index_js_1.button, canvas: index_js_1.canvas, caption: index_js_1.caption, cite: index_js_1.cite, code: index_js_1.code, col: index_js_1.col, colgroup: index_js_1.colgroup, data: index_js_1.data, datalist: index_js_1.datalist,
+    dd: index_js_1.dd, del: index_js_1.del, details: index_js_1.details, dfn: index_js_1.dfn, dialog: index_js_1.dialog, div: index_js_1.div, dl: index_js_1.dl, dt: index_js_1.dt, em: index_js_1.em, embed: index_js_1.embed, fieldset: index_js_1.fieldset, figcaption: index_js_1.figcaption,
+    figure: index_js_1.figure, footer: index_js_1.footer, form: index_js_1.form, h1: index_js_1.h1, h2: index_js_1.h2, h3: index_js_1.h3, h4: index_js_1.h4, h5: index_js_1.h5, h6: index_js_1.h6, head: index_js_1.head, header: index_js_1.header, hgroup: index_js_1.hgroup, hr: index_js_1.hr, html: index_js_1.html,
+    i: index_js_1.i, iframe: index_js_1.iframe, img: index_js_1.img, input: index_js_1.input, ins: index_js_1.ins, kbd: index_js_1.kbd, label: index_js_1.label, legend: index_js_1.legend, li: index_js_1.li, link: index_js_1.link, main: index_js_1.main, map: index_js_1.map, mark: index_js_1.mark,
+    menu: index_js_1.menu, meta: index_js_1.meta, meter: index_js_1.meter, nav: index_js_1.nav, noscript: index_js_1.noscript, object: index_js_1.object, ol: index_js_1.ol, optgroup: index_js_1.optgroup, option: index_js_1.option, output: index_js_1.output, p: index_js_1.p,
+    picture: index_js_1.picture, pre: index_js_1.pre, progress: index_js_1.progress, q: index_js_1.q, rp: index_js_1.rp, rt: index_js_1.rt, ruby: index_js_1.ruby, $s: index_js_1.$s, samp: index_js_1.samp, script: index_js_1.script, section: index_js_1.section, select: index_js_1.select,
+    slot: index_js_1.slot, small: index_js_1.small, source: index_js_1.source, span: index_js_1.span, strong: index_js_1.strong, style: index_js_1.style, sub: index_js_1.sub, summary: index_js_1.summary, sup: index_js_1.sup, table: index_js_1.table, tbody: index_js_1.tbody, td: index_js_1.td,
+    template: index_js_1.template, textarea: index_js_1.textarea, tfoot: index_js_1.tfoot, th: index_js_1.th, thead: index_js_1.thead, time: index_js_1.time, title: index_js_1.title, tr: index_js_1.tr, track: index_js_1.track, u: index_js_1.u, ul: index_js_1.ul, $var: index_js_1.$var,
+    video: index_js_1.video, wbr: index_js_1.wbr
 };
 exports.svgHelpers = {
-    $a: __1.$a, circle: __1.circle, clipPath: __1.clipPath, defs: __1.defs, desc: __1.desc, ellipse: __1.ellipse, feBlend: __1.feBlend, feColorMatrix: __1.feColorMatrix,
-    feComponentTransfer: __1.feComponentTransfer, feComposite: __1.feComposite, feConvolveMatrix: __1.feConvolveMatrix, feDiffuseLighting: __1.feDiffuseLighting,
-    feDisplacementMap: __1.feDisplacementMap, feDistantLight: __1.feDistantLight, feDropShadow: __1.feDropShadow, feFlood: __1.feFlood, feFuncA: __1.feFuncA, feFuncB: __1.feFuncB,
-    feFuncG: __1.feFuncG, feFuncR: __1.feFuncR, feGaussianBlur: __1.feGaussianBlur, feImage: __1.feImage, feMerge: __1.feMerge, feMergeNode: __1.feMergeNode, feMorphology: __1.feMorphology,
-    feOffset: __1.feOffset, fePointLight: __1.fePointLight, feSpecularLighting: __1.feSpecularLighting, feSpotLight: __1.feSpotLight, feTile: __1.feTile, feTurbulence: __1.feTurbulence,
-    filter: __1.filter, foreignObject: __1.foreignObject, g: __1.g, image: __1.image, line: __1.line, linearGradient: __1.linearGradient, marker: __1.marker, mask: __1.mask, metadata: __1.metadata,
-    path: __1.path, pattern: __1.pattern, polygon: __1.polygon, polyline: __1.polyline, radialGradient: __1.radialGradient, rect: __1.rect, stop: __1.stop, svg: __1.svg, $switch: __1.$switch,
-    symbol: __1.symbol, $text: __1.$text, textPath: __1.textPath, tspan: __1.tspan, use: __1.use, view: __1.view, $script: __1.$script, $style: __1.$style, $title: __1.$title
+    $a: index_js_1.$a, circle: index_js_1.circle, clipPath: index_js_1.clipPath, defs: index_js_1.defs, desc: index_js_1.desc, ellipse: index_js_1.ellipse, feBlend: index_js_1.feBlend, feColorMatrix: index_js_1.feColorMatrix,
+    feComponentTransfer: index_js_1.feComponentTransfer, feComposite: index_js_1.feComposite, feConvolveMatrix: index_js_1.feConvolveMatrix, feDiffuseLighting: index_js_1.feDiffuseLighting,
+    feDisplacementMap: index_js_1.feDisplacementMap, feDistantLight: index_js_1.feDistantLight, feDropShadow: index_js_1.feDropShadow, feFlood: index_js_1.feFlood, feFuncA: index_js_1.feFuncA, feFuncB: index_js_1.feFuncB,
+    feFuncG: index_js_1.feFuncG, feFuncR: index_js_1.feFuncR, feGaussianBlur: index_js_1.feGaussianBlur, feImage: index_js_1.feImage, feMerge: index_js_1.feMerge, feMergeNode: index_js_1.feMergeNode, feMorphology: index_js_1.feMorphology,
+    feOffset: index_js_1.feOffset, fePointLight: index_js_1.fePointLight, feSpecularLighting: index_js_1.feSpecularLighting, feSpotLight: index_js_1.feSpotLight, feTile: index_js_1.feTile, feTurbulence: index_js_1.feTurbulence,
+    filter: index_js_1.filter, foreignObject: index_js_1.foreignObject, g: index_js_1.g, image: index_js_1.image, line: index_js_1.line, linearGradient: index_js_1.linearGradient, marker: index_js_1.marker, mask: index_js_1.mask, metadata: index_js_1.metadata,
+    path: index_js_1.path, pattern: index_js_1.pattern, polygon: index_js_1.polygon, polyline: index_js_1.polyline, radialGradient: index_js_1.radialGradient, rect: index_js_1.rect, stop: index_js_1.stop, svg: index_js_1.svg, $switch: index_js_1.$switch,
+    symbol: index_js_1.symbol, $text: index_js_1.$text, textPath: index_js_1.textPath, tspan: index_js_1.tspan, use: index_js_1.use, view: index_js_1.view, $script: index_js_1.$script, $style: index_js_1.$style, $title: index_js_1.$title
 };
 //# sourceMappingURL=suite.js.map
